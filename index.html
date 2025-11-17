@@ -1,0 +1,841 @@
+<html lang="en"><div id="in-page-channel-node-id" data-channel-name="in_page_channel_Wfhr6G"></div><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Food Corner - The Biggest California Street Menu</title>
+    
+    <link href="/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/all.min.css">
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #ff5722; /* Vibrant food color (Orange/Red) */
+            --secondary-color: #333;
+            --text-color: #555;
+            --bg-light: #f4f4f4;
+            --bg-dark: #222;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: white;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e64a19; /* Darker shade of primary */
+        }
+
+        /* Header/Navigation */
+        .header {
+            background: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar a {
+            font-size: 1rem;
+            padding: 0 15px;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary-color);
+            display: none; /* Hidden on desktop */
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Using a high-quality placeholder image for a California-style food truck scene */
+            background: url('https://images.pexels.com/photos/2232433/pexels-photo-2232433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover; 
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden; 
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); 
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* General Section Styles */
+        section {
+            padding: 60px 5%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+        }
+        
+        /* Menu Section Categories */
+        .menu-category-title {
+            text-align: left;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            grid-column: 1 / -1; /* Span full width of the grid */
+        }
+
+        /* Menu Section */
+        .menu {
+            background-color: var(--bg-light);
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .menu-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-item .price {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-image-placeholder {
+            flex: 1;
+            height: 300px;
+            background: url('https://images.pexels.com/photos/10323336/pexels-photo-10323336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover; /* Placeholder for About image */
+            border-radius: 8px;
+            /* No placeholder text needed as it's an image */
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+            text-align: center;
+        }
+
+        #contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .hidden {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- MEDIA QUERIES (Responsiveness) --- */
+        @media (max-width: 768px) {
+            .navbar {
+                position: absolute;
+                top: 60px; /* Below the header */
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 10px 0;
+                border-top: 1px solid #eee;
+                display: none; /* Initially hidden on mobile */
+                box-shadow: 0 4px 4px rgba(0,0,0,0.05);
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .navbar a {
+                padding: 10px 5%;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .menu-toggle {
+                display: block; /* Show hamburger icon on mobile */
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image-placeholder {
+                height: 200px;
+                margin-top: 30px;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+
+            .social-links {
+                margin-top: 15px;
+            }
+        }
+    </style>
+    <style>@keyframes slide-in-one-tap {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.trust-hide-gracefully {
+  opacity: 0;
+}
+
+.trust-wallet-one-tap .hidden {
+    display: none;
+  }
+
+.trust-wallet-one-tap .semibold {
+    font-weight: 500;
+  }
+
+.trust-wallet-one-tap .binance-plex {
+    font-family: 'Binance';
+  }
+
+.trust-wallet-one-tap .rounded-full {
+    border-radius: 50%;
+  }
+
+.trust-wallet-one-tap .flex {
+    display: flex;
+  }
+
+.trust-wallet-one-tap .flex-col {
+    flex-direction: column;
+  }
+
+.trust-wallet-one-tap .items-center {
+    align-items: center;
+  }
+
+.trust-wallet-one-tap .space-between {
+    justify-content: space-between;
+  }
+
+.trust-wallet-one-tap .justify-center {
+    justify-content: center;
+  }
+
+.trust-wallet-one-tap .w-full {
+    width: 100%;
+  }
+
+.trust-wallet-one-tap .box {
+    transition: all 0.5s cubic-bezier(0, 0, 0, 1.43);
+    animation: slide-in-one-tap 0.5s cubic-bezier(0, 0, 0, 1.43);
+    width: 384px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1020;
+  }
+
+.trust-wallet-one-tap .header {
+    gap: 15px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 18px;
+  }
+
+.trust-wallet-one-tap .header .left-items {
+      gap: 15px;
+    }
+
+.trust-wallet-one-tap .header .title {
+      color: #1e2329;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+.trust-wallet-one-tap .header .subtitle {
+      color: #474d57;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+.trust-wallet-one-tap .header .close {
+      color: #1e2329;
+      cursor: pointer;
+    }
+
+.trust-wallet-one-tap .body {
+    padding: 9px 18px;
+    gap: 10px;
+  }
+
+.trust-wallet-one-tap .body .right-items {
+      gap: 10px;
+      width: 100%;
+    }
+
+.trust-wallet-one-tap .body .right-items .wallet-title {
+        color: #1e2329;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+
+.trust-wallet-one-tap .body .right-items .wallet-subtitle {
+        color: #474d57;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+.trust-wallet-one-tap .connect-indicator {
+    gap: 15px;
+    padding: 8px 0;
+  }
+
+.trust-wallet-one-tap .connect-indicator .flow-icon {
+      color: #474d57;
+    }
+
+.trust-wallet-one-tap .loading-color {
+    color: #fff;
+  }
+
+.trust-wallet-one-tap .button {
+    border-radius: 50px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    background-color: rgb(5, 0, 255);
+    border-color: rgb(229, 231, 235);
+    cursor: pointer;
+    text-align: center;
+    height: 45px;
+  }
+
+.trust-wallet-one-tap .button .button-text {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+.trust-wallet-one-tap .footer {
+    margin: 20px 30px;
+  }
+
+.trust-wallet-one-tap .check-icon {
+    color: #fff;
+  }
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Regular.otf) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Medium.otf) format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-SemiBold.otf) format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2FwcC9zcmMvb25lVGFwL3N0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0lBQ0UsMkJBQTJCO0VBQzdCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7QUFDRjs7QUFFQTtFQUNFLFVBQVU7QUFDWjs7QUFHRTtJQUNFLGFBQWE7RUFDZjs7QUFFQTtJQUNFLGdCQUFnQjtFQUNsQjs7QUFFQTtJQUNFLHNCQUFzQjtFQUN4Qjs7QUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7QUFFQTtJQUNFLGFBQWE7RUFDZjs7QUFFQTtJQUNFLHNCQUFzQjtFQUN4Qjs7QUFFQTtJQUNFLG1CQUFtQjtFQUNyQjs7QUFFQTtJQUNFLDhCQUE4QjtFQUNoQzs7QUFFQTtJQUNFLHVCQUF1QjtFQUN6Qjs7QUFFQTtJQUNFLFdBQVc7RUFDYjs7QUFFQTtJQUNFLGdEQUFnRDtJQUNoRCw0REFBNEQ7SUFDNUQsWUFBWTtJQUNaLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsK0NBQStDO0lBQy9DLGVBQWU7SUFDZixXQUFXO0lBQ1gsWUFBWTtJQUNaLGFBQWE7RUFDZjs7QUFFQTtJQUNFLFNBQVM7SUFDVCxnQ0FBZ0M7SUFDaEMsa0JBQWtCO0VBdUJwQjs7QUFyQkU7TUFDRSxTQUFTO0lBQ1g7O0FBRUE7TUFDRSxjQUFjO01BQ2QsZUFBZTtNQUNmLGdCQUFnQjtNQUNoQixpQkFBaUI7SUFDbkI7O0FBRUE7TUFDRSxjQUFjO01BQ2QsZUFBZTtNQUNmLGlCQUFpQjtJQUNuQjs7QUFFQTtNQUNFLGNBQWM7TUFDZCxlQUFlO0lBQ2pCOztBQUdGO0lBQ0UsaUJBQWlCO0lBQ2pCLFNBQVM7RUFtQlg7O0FBakJFO01BQ0UsU0FBUztNQUNULFdBQVc7SUFjYjs7QUFaRTtRQUNFLGNBQWM7UUFDZCxlQUFlO1FBQ2YsZ0JBQWdCO1FBQ2hCLGlCQUFpQjtNQUNuQjs7QUFFQTtRQUNFLGNBQWM7UUFDZCxlQUFlO1FBQ2YsaUJBQWlCO01BQ25COztBQUlKO0lBQ0UsU0FBUztJQUNULGNBQWM7RUFLaEI7O0FBSEU7TUFDRSxjQUFjO0lBQ2hCOztBQUdGO0lBQ0UsV0FBVztFQUNiOztBQUVBO0lBQ0UsbUJBQW1CO0lBQ25CLDhCQUE4QjtJQUM5QixtQkFBbUI7SUFDbkIsZ0NBQWdDO0lBQ2hDLGdDQUFnQztJQUNoQyxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFlBQVk7RUFRZDs7QUFORTtNQUNFLFdBQVc7TUFDWCxlQUFlO01BQ2YsZ0JBQWdCO01BQ2hCLGlCQUFpQjtJQUNuQjs7QUFHRjtJQUNFLGlCQUFpQjtFQUNuQjs7QUFFQTtJQUNFLFdBQVc7RUFDYjs7QUFHRjtFQUNFLHNCQUFzQjtFQUN0QiwrREFBMEU7RUFDMUUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QiwrREFBeUU7RUFDekUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QiwrREFBMkU7RUFDM0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQiIsInNvdXJjZXNDb250ZW50IjpbIkBrZXlmcmFtZXMgc2xpZGUtaW4tb25lLXRhcCB7XG4gIGZyb20ge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSg4MHB4KTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDBweCk7XG4gIH1cbn1cblxuLnRydXN0LWhpZGUtZ3JhY2VmdWxseSB7XG4gIG9wYWNpdHk6IDA7XG59XG5cbi50cnVzdC13YWxsZXQtb25lLXRhcCB7XG4gIC5oaWRkZW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAuc2VtaWJvbGQge1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIH1cblxuICAuYmluYW5jZS1wbGV4IHtcbiAgICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICB9XG5cbiAgLnJvdW5kZWQtZnVsbCB7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB9XG5cbiAgLmZsZXgge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gIH1cblxuICAuZmxleC1jb2wge1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cblxuICAuaXRlbXMtY2VudGVyIHtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICB9XG5cbiAgLnNwYWNlLWJldHdlZW4ge1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgfVxuXG4gIC5qdXN0aWZ5LWNlbnRlciB7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIH1cblxuICAudy1mdWxsIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuXG4gIC5ib3gge1xuICAgIHRyYW5zaXRpb246IGFsbCAwLjVzIGN1YmljLWJlemllcigwLCAwLCAwLCAxLjQzKTtcbiAgICBhbmltYXRpb246IHNsaWRlLWluLW9uZS10YXAgMC41cyBjdWJpYy1iZXppZXIoMCwgMCwgMCwgMS40Myk7XG4gICAgd2lkdGg6IDM4NHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7XG4gICAgYmFja2dyb3VuZDogI2ZmZjtcbiAgICBib3gtc2hhZG93OiAwcHggMnB4IDRweCAwcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgcmlnaHQ6IDMwcHg7XG4gICAgYm90dG9tOiAzMHB4O1xuICAgIHotaW5kZXg6IDEwMjA7XG4gIH1cblxuICAuaGVhZGVyIHtcbiAgICBnYXA6IDE1cHg7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNlNmU2ZTY7XG4gICAgcGFkZGluZzogMTBweCAxOHB4O1xuXG4gICAgLmxlZnQtaXRlbXMge1xuICAgICAgZ2FwOiAxNXB4O1xuICAgIH1cblxuICAgIC50aXRsZSB7XG4gICAgICBjb2xvcjogIzFlMjMyOTtcbiAgICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICBsaW5lLWhlaWdodDogMjhweDtcbiAgICB9XG5cbiAgICAuc3VidGl0bGUge1xuICAgICAgY29sb3I6ICM0NzRkNTc7XG4gICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICBsaW5lLWhlaWdodDogMjBweDtcbiAgICB9XG5cbiAgICAuY2xvc2Uge1xuICAgICAgY29sb3I6ICMxZTIzMjk7XG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgfVxuICB9XG5cbiAgLmJvZHkge1xuICAgIHBhZGRpbmc6IDlweCAxOHB4O1xuICAgIGdhcDogMTBweDtcblxuICAgIC5yaWdodC1pdGVtcyB7XG4gICAgICBnYXA6IDEwcHg7XG4gICAgICB3aWR0aDogMTAwJTtcblxuICAgICAgLndhbGxldC10aXRsZSB7XG4gICAgICAgIGNvbG9yOiAjMWUyMzI5O1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgICAgfVxuXG4gICAgICAud2FsbGV0LXN1YnRpdGxlIHtcbiAgICAgICAgY29sb3I6ICM0NzRkNTc7XG4gICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgLmNvbm5lY3QtaW5kaWNhdG9yIHtcbiAgICBnYXA6IDE1cHg7XG4gICAgcGFkZGluZzogOHB4IDA7XG5cbiAgICAuZmxvdy1pY29uIHtcbiAgICAgIGNvbG9yOiAjNDc0ZDU3O1xuICAgIH1cbiAgfVxuXG4gIC5sb2FkaW5nLWNvbG9yIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgfVxuXG4gIC5idXR0b24ge1xuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgb3V0bGluZTogMnB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAgIG91dGxpbmUtb2Zmc2V0OiAycHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUsIDAsIDI1NSk7XG4gICAgYm9yZGVyLWNvbG9yOiByZ2IoMjI5LCAyMzEsIDIzNSk7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBoZWlnaHQ6IDQ1cHg7XG5cbiAgICAuYnV0dG9uLXRleHQge1xuICAgICAgY29sb3I6ICNmZmY7XG4gICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgfVxuICB9XG5cbiAgLmZvb3RlciB7XG4gICAgbWFyZ2luOiAyMHB4IDMwcHg7XG4gIH1cblxuICAuY2hlY2staWNvbiB7XG4gICAgY29sb3I6ICNmZmY7XG4gIH1cbn1cblxuQGZvbnQtZmFjZSB7XG4gIGZvbnQtZmFtaWx5OiAnQmluYW5jZSc7XG4gIHNyYzogdXJsKCcuL2ZvbnRzL2JpbmFuY2VQbGV4L0JpbmFuY2VQbGV4LVJlZ3VsYXIub3RmJykgZm9ybWF0KCdvcGVudHlwZScpO1xuICBmb250LXdlaWdodDogNDAwO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICBzcmM6IHVybCgnLi9mb250cy9iaW5hbmNlUGxleC9CaW5hbmNlUGxleC1NZWRpdW0ub3RmJykgZm9ybWF0KCdvcGVudHlwZScpO1xuICBmb250LXdlaWdodDogNTAwO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICBzcmM6IHVybCgnLi9mb250cy9iaW5hbmNlUGxleC9CaW5hbmNlUGxleC1TZW1pQm9sZC5vdGYnKSBmb3JtYXQoJ29wZW50eXBlJyk7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style></head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">The Corner</a>
+        <nav class="navbar" id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="menu-toggle" id="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Taste the Best California Street Food!</h1>
+                <p>Authentic flavors, fresh ingredients, and a touch of Golden State sunshine in every bite.</p>
+                <a href="#menu" class="btn">Explore the Menu</a>
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+            <h2>California Favorites</h2>
+            <div class="menu-container">
+                <h3 class="menu-category-title">TACOS, BURRITOS, &amp; ROLLS</h3><div class="menu-item">
+                        <img src="./images/pexels-photo-10126742.jpeg" alt="California Burrito">
+                        <h3>California Burrito <span class="price">$10.99</span></h3>
+                        <p>Carne Asada, french fries, cheese, sour cream, and guacamole, San Diego style.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-10046045.jpeg" alt="Al Pastor Tacos">
+                        <h3>Al Pastor Tacos <span class="price">$3.50</span></h3>
+                        <p>Marinated pork, pineapple, onion, and cilantro on a corn tortilla.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-7047805.jpeg" alt="Baja Fish Tacos">
+                        <h3>Baja Fish Tacos <span class="price">$4.25</span></h3>
+                        <p>Crispy battered cod, cabbage slaw, and spicy crema on a corn tortilla.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-6065586.jpeg" alt="Shrimp Ceviche Tostada">
+                        <h3>Shrimp Ceviche Tostada <span class="price">$6.99</span></h3>
+                        <p>Lime-cured shrimp, avocado, tomato, and cilantro on a crunchy tostada.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-6306352.jpeg" alt="Mission Burrito">
+                        <h3>Mission Burrito <span class="price">$9.99</span></h3>
+                        <p>Large flour tortilla with rice, beans, choice of meat (carnitas), salsa, and guac.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-9944638.jpeg" alt="Birria de Res Taco (2pc)">
+                        <h3>Birria de Res Taco (2pc) <span class="price">$8.50</span></h3>
+                        <p>Shredded beef, cheese, cilantro, onion, served with dipping consommé.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-10006277.jpeg" alt="Kogi Short Rib Taco">
+                        <h3>Kogi Short Rib Taco <span class="price">$5.00</span></h3>
+                        <p>Korean BBQ short rib, chili-soy slaw, cilantro, and onions on a corn tortilla.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-1639563.jpeg" alt="Veggie Asada Burrito">
+                        <h3>Veggie Asada Burrito <span class="price">$9.50</span></h3>
+                        <p>Plant-based asada, rice, beans, cheese, and fresh salsa.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-4061521.jpeg" alt="Chicken Tinga Tostada">
+                        <h3>Chicken Tinga Tostada <span class="price">$4.00</span></h3>
+                        <p>Shredded chicken in chipotle sauce, topped with crema and queso fresco.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-376464.jpeg" alt="Philly Cheesesteak Egg Roll">
+                        <h3>Philly Cheesesteak Egg Roll <span class="price">$7.50</span></h3>
+                        <p>Beef, onions, peppers, and cheese inside a crispy egg roll wrapper.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-1640777.jpeg" alt="Spicy Shrimp Wrap">
+                        <h3>Spicy Shrimp Wrap <span class="price">$8.99</span></h3>
+                        <p>Grilled shrimp, avocado, lettuce, and spicy chipotle mayo in a wheat wrap.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-9944647.jpeg" alt="Quesabirria">
+                        <h3>Quesabirria <span class="price">$4.75</span></h3>
+                        <p>Crispy taco shell filled with birria and melted cheese.</p>
+                    </div><h3 class="menu-category-title">BOWLS, FRIES, &amp; HOT DOGS</h3><div class="menu-item">
+                        <img src="./images/pexels-photo-9625942.jpeg" alt="Carne Asada Fries">
+                        <h3>Carne Asada Fries <span class="price">$11.99</span></h3>
+                        <p>Crispy fries loaded with carne asada, cheddar, guac, and crema.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-2253685.jpeg" alt="Bacon-Wrapped Hot Dog">
+                        <h3>Bacon-Wrapped Hot Dog <span class="price">$7.00</span></h3>
+                        <p>The iconic 'Danger Dog' with grilled onions, peppers, ketchup, and mustard.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-3482276.jpeg" alt="Acai Energy Bowl">
+                        <h3>Acai Energy Bowl <span class="price">$8.50</span></h3>
+                        <p>Frozen acai blended with banana, topped with granola, honey, and fresh berries.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-70497.jpeg" alt="Spicy Garlic Noodles">
+                        <h3>Spicy Garlic Noodles <span class="price">$9.99</span></h3>
+                        <p>Wok-tossed noodles in a savory, spicy garlic butter sauce.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-106343.jpeg" alt="K-Town Bulgogi Bowl">
+                        <h3>K-Town Bulgogi Bowl <span class="price">$12.50</span></h3>
+                        <p>Sweet marinated Korean beef served over rice with kimchi and pickled radish.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-3926127.jpeg" alt="Chili Cheese Fries">
+                        <h3>Chili Cheese Fries <span class="price">$6.50</span></h3>
+                        <p>Classic fries topped with beef chili and melted cheddar cheese.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-11090439.jpeg" alt="Smoked Pulled Pork Sandwich">
+                        <h3>Smoked Pulled Pork Sandwich <span class="price">$10.99</span></h3>
+                        <p>Slow-smoked pork with Carolina BBQ sauce on a brioche bun with slaw.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-4099238.jpeg" alt="Beyond Burger Slider (2pc)">
+                        <h3>Beyond Burger Slider (2pc) <span class="price">$7.99</span></h3>
+                        <p>Mini plant-based burgers with vegan aioli and caramelized onions.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-4198226.jpeg" alt="Pastrami Dog">
+                        <h3>Pastrami Dog <span class="price">$8.50</span></h3>
+                        <p>All-beef hot dog topped with sliced pastrami and spicy mustard.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-8991475.jpeg" alt="Street Corn Salad (Esquites)">
+                        <h3>Street Corn Salad (Esquites) <span class="price">$4.50</span></h3>
+                        <p>Sweet corn mixed with mayo, lime, cotija cheese, and chili powder.</p>
+                    </div><h3 class="menu-category-title">DESSERTS &amp; DRINKS</h3><div class="menu-item">
+                        <img src="./images/pexels-photo-6684742.jpeg" alt="Churro Bites">
+                        <h3>Churro Bites <span class="price">$5.99</span></h3>
+                        <p>Crispy, deep-fried dough tossed in cinnamon sugar, served with chocolate dip.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-808941.jpeg" alt="Mango Sticky Rice Spring Roll">
+                        <h3>Mango Sticky Rice Spring Roll <span class="price">$6.50</span></h3>
+                        <p>Sweet sticky rice and fresh mango wrapped in a crispy spring roll.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-7174676.jpeg" alt="Funnel Cake Fries">
+                        <h3>Funnel Cake Fries <span class="price">$5.00</span></h3>
+                        <p>Strips of funnel cake dough, fried and dusted with powdered sugar.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-4196892.jpeg" alt="Horchata">
+                        <h3>Horchata <span class="price">$3.50</span></h3>
+                        <p>Traditional sweet rice milk beverage with cinnamon.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-4611847.jpeg" alt="Agua Fresca (Seasonal)">
+                        <h3>Agua Fresca (Seasonal) <span class="price">$3.99</span></h3>
+                        <p>Refreshing daily fruit water (e.g., Watermelon or Pineapple).</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-5963777.jpeg" alt="Iced Vietnamese Coffee">
+                        <h3>Iced Vietnamese Coffee <span class="price">$4.50</span></h3>
+                        <p>Strong coffee brewed with condensed milk, served over ice.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-5847952.jpeg" alt="Cookie Dough Skillet">
+                        <h3>Cookie Dough Skillet <span class="price">$7.99</span></h3>
+                        <p>Warm, gooey cookie dough served in a mini skillet with a scoop of ice cream.</p>
+                    </div><div class="menu-item">
+                        <img src="./images/pexels-photo-10126744.jpeg" alt="Classic Root Beer Float">
+                        <h3>Classic Root Beer Float <span class="price">$4.00</span></h3>
+                        <p>Rich root beer poured over vanilla bean ice cream.</p>
+                    </div></div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-content">
+                <h2>The California Dream, Wrapped Up</h2>
+                <p>Inspired by the diverse food culture of Los Angeles and San Diego, The Corner brings you the most craveable street eats. From savory **Carne Asada Fries** to authentic **Al Pastor Tacos**, we focus on vibrant, bold flavors and generous portions. We're your local stop for honest, delicious food—just like a true California food truck experience.</p>
+            </div>
+            <div class="about-image-placeholder">
+                </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Place an Order or Ask a Question</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message/Order Details</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Request</button>
+                <p id="form-message" class="hidden"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 The Food Corner. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Menu Data (30 California Street Food inspired items with actual image URLs) ---
+        const foodMenu = [
+            // --- Tacos, Burritos, & Rolls (12 Items) ---
+            { category: "Tacos, Burritos, & Rolls", name: "California Burrito", price: 10.99, description: "Carne Asada, french fries, cheese, sour cream, and guacamole, San Diego style.", image: "https://images.pexels.com/photos/10126742/pexels-photo-10126742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Al Pastor Tacos", price: 3.50, description: "Marinated pork, pineapple, onion, and cilantro on a corn tortilla.", image: "https://images.pexels.com/photos/10046045/pexels-photo-10046045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Baja Fish Tacos", price: 4.25, description: "Crispy battered cod, cabbage slaw, and spicy crema on a corn tortilla.", image: "https://images.pexels.com/photos/7047805/pexels-photo-7047805.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Shrimp Ceviche Tostada", price: 6.99, description: "Lime-cured shrimp, avocado, tomato, and cilantro on a crunchy tostada.", image: "https://images.pexels.com/photos/6065586/pexels-photo-6065586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Mission Burrito", price: 9.99, description: "Large flour tortilla with rice, beans, choice of meat (carnitas), salsa, and guac.", image: "https://images.pexels.com/photos/6306352/pexels-photo-6306352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Birria de Res Taco (2pc)", price: 8.50, description: "Shredded beef, cheese, cilantro, onion, served with dipping consommé.", image: "https://images.pexels.com/photos/9944638/pexels-photo-9944638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Kogi Short Rib Taco", price: 5.00, description: "Korean BBQ short rib, chili-soy slaw, cilantro, and onions on a corn tortilla.", image: "https://images.pexels.com/photos/10006277/pexels-photo-10006277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Veggie Asada Burrito", price: 9.50, description: "Plant-based asada, rice, beans, cheese, and fresh salsa.", image: "https://images.pexels.com/photos/1639563/pexels-photo-1639563.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Chicken Tinga Tostada", price: 4.00, description: "Shredded chicken in chipotle sauce, topped with crema and queso fresco.", image: "https://images.pexels.com/photos/4061521/pexels-photo-4061521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Philly Cheesesteak Egg Roll", price: 7.50, description: "Beef, onions, peppers, and cheese inside a crispy egg roll wrapper.", image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Spicy Shrimp Wrap", price: 8.99, description: "Grilled shrimp, avocado, lettuce, and spicy chipotle mayo in a wheat wrap.", image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Tacos, Burritos, & Rolls", name: "Quesabirria", price: 4.75, description: "Crispy taco shell filled with birria and melted cheese.", image: "https://images.pexels.com/photos/9944647/pexels-photo-9944647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+
+            // --- Bowls, Fries, & Hot Dogs (10 Items) ---
+            { category: "Bowls, Fries, & Hot Dogs", name: "Carne Asada Fries", price: 11.99, description: "Crispy fries loaded with carne asada, cheddar, guac, and crema.", image: "https://images.pexels.com/photos/9625942/pexels-photo-9625942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Bacon-Wrapped Hot Dog", price: 7.00, description: "The iconic 'Danger Dog' with grilled onions, peppers, ketchup, and mustard.", image: "https://images.pexels.com/photos/2253685/pexels-photo-2253685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Acai Energy Bowl", price: 8.50, description: "Frozen acai blended with banana, topped with granola, honey, and fresh berries.", image: "https://images.pexels.com/photos/3482276/pexels-photo-3482276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Spicy Garlic Noodles", price: 9.99, description: "Wok-tossed noodles in a savory, spicy garlic butter sauce.", image: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "K-Town Bulgogi Bowl", price: 12.50, description: "Sweet marinated Korean beef served over rice with kimchi and pickled radish.", image: "https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Chili Cheese Fries", price: 6.50, description: "Classic fries topped with beef chili and melted cheddar cheese.", image: "https://images.pexels.com/photos/3926127/pexels-photo-3926127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Smoked Pulled Pork Sandwich", price: 10.99, description: "Slow-smoked pork with Carolina BBQ sauce on a brioche bun with slaw.", image: "https://images.pexels.com/photos/11090439/pexels-photo-11090439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Beyond Burger Slider (2pc)", price: 7.99, description: "Mini plant-based burgers with vegan aioli and caramelized onions.", image: "https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Pastrami Dog", price: 8.50, description: "All-beef hot dog topped with sliced pastrami and spicy mustard.", image: "https://images.pexels.com/photos/4198226/pexels-photo-4198226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Bowls, Fries, & Hot Dogs", name: "Street Corn Salad (Esquites)", price: 4.50, description: "Sweet corn mixed with mayo, lime, cotija cheese, and chili powder.", image: "https://images.pexels.com/photos/8991475/pexels-photo-8991475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+
+            // --- Desserts & Drinks (8 Items) ---
+            { category: "Desserts & Drinks", name: "Churro Bites", price: 5.99, description: "Crispy, deep-fried dough tossed in cinnamon sugar, served with chocolate dip.", image: "https://images.pexels.com/photos/6684742/pexels-photo-6684742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Mango Sticky Rice Spring Roll", price: 6.50, description: "Sweet sticky rice and fresh mango wrapped in a crispy spring roll.", image: "https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Funnel Cake Fries", price: 5.00, description: "Strips of funnel cake dough, fried and dusted with powdered sugar.", image: "https://images.pexels.com/photos/7174676/pexels-photo-7174676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Horchata", price: 3.50, description: "Traditional sweet rice milk beverage with cinnamon.", image: "https://images.pexels.com/photos/4196892/pexels-photo-4196892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Agua Fresca (Seasonal)", price: 3.99, description: "Refreshing daily fruit water (e.g., Watermelon or Pineapple).", image: "https://images.pexels.com/photos/4611847/pexels-photo-4611847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Iced Vietnamese Coffee", price: 4.50, description: "Strong coffee brewed with condensed milk, served over ice.", image: "https://images.pexels.com/photos/5963777/pexels-photo-5963777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Cookie Dough Skillet", price: 7.99, description: "Warm, gooey cookie dough served in a mini skillet with a scoop of ice cream.", image: "https://images.pexels.com/photos/5847952/pexels-photo-5847952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { category: "Desserts & Drinks", name: "Classic Root Beer Float", price: 4.00, description: "Rich root beer poured over vanilla bean ice cream.", image: "https://images.pexels.com/photos/10126744/pexels-photo-10126744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" }
+        ];
+
+        // --- 2. Dynamic Menu Generation ---
+        function displayMenu() {
+            const menuContainer = document.querySelector('.menu-container');
+            
+            // Map to hold menu items grouped by category
+            const categories = {};
+            foodMenu.forEach(item => {
+                if (!categories[item.category]) {
+                    categories[item.category] = [];
+                }
+                categories[item.category].push(item);
+            });
+
+            // Loop through categories and inject content
+            for (const category in categories) {
+                // Add category title header
+                const titleDiv = document.createElement('h3');
+                titleDiv.classList.add('menu-category-title');
+                titleDiv.textContent = category.toUpperCase();
+                menuContainer.appendChild(titleDiv);
+
+                // Add dishes for this category
+                categories[category].forEach(item => {
+                    const menuItemDiv = document.createElement('div');
+                    menuItemDiv.classList.add('menu-item');
+                    
+                    menuItemDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <h3>${item.name} <span class="price">$${item.price.toFixed(2)}</span></h3>
+                        <p>${item.description}</p>
+                    `;
+                    
+                    menuContainer.appendChild(menuItemDiv);
+                });
+            }
+        }
+
+        // --- 3. Mobile Navigation Toggle ---
+        function setupNavToggle() {
+            const menuIcon = document.getElementById('menu-icon');
+            const navMenu = document.getElementById('nav-menu');
+
+            menuIcon.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked (for smooth scrolling)
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // --- 4. Contact Form Submission (Client-side simulation) ---
+        function setupContactForm() {
+            const form = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent actual form submission
+
+                // Simulate form submission success
+                console.log('Form Submitted!');
+                
+                // Show success message
+                formMessage.textContent = 'Order/Request Sent! We will confirm your details shortly.';
+                formMessage.classList.remove('hidden', 'error');
+                formMessage.classList.add('success');
+
+                // Clear the form after a short delay
+                setTimeout(() => {
+                    form.reset();
+                    formMessage.classList.add('hidden');
+                }, 4000);
+            });
+        }
+
+        // --- 5. Initialize the Website ---
+        document.addEventListener('DOMContentLoaded', () => {
+            displayMenu();
+            setupNavToggle();
+            setupContactForm();
+        });
+    </script>
+    
+<container id="my-app-container"></container></body></html>
